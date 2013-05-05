@@ -1,0 +1,8 @@
+#JSGF V1.0;
+
+/**
+ * JSGF Digits Grammar file
+ */
+ grammar drinks;
+ 
+ public <command> = /10/ click | /7/ reset | /1/ stop;
