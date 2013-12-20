@@ -2,7 +2,6 @@
 #include <Windows.h>
 #include "ktrack.h"
 
-
 int cam_frame_width=320;
 int cam_frame_height=240;
 int screen_width=GetSystemMetrics(SM_CXSCREEN);
@@ -59,7 +58,8 @@ void sendEvent(int no){
 switch(no){
 case 1:lclick();
 	break;
-default: cout<<"illegal event";
+case 2:dblclick();
+default: std::cout<<"illegal event";
 
 }
 
@@ -68,7 +68,15 @@ default: cout<<"illegal event";
 
 
 void lclick(){
- cout<<"left clicked"<<endl;
+ std::cout<<"left clicked"<<std::endl;
+ mouse_event(MOUSEEVENTF_LEFTDOWN,lpp.x,lpp.y,0,0);
+ mouse_event(MOUSEEVENTF_LEFTUP,lpp.x,lpp.y,0,0);
+}
+
+void dblclick(){
+ std::cout<<"double clicked"<<std::endl;
+ mouse_event(MOUSEEVENTF_LEFTDOWN,lpp.x,lpp.y,0,0);
+ mouse_event(MOUSEEVENTF_LEFTUP,lpp.x,lpp.y,0,0);
  mouse_event(MOUSEEVENTF_LEFTDOWN,lpp.x,lpp.y,0,0);
  mouse_event(MOUSEEVENTF_LEFTUP,lpp.x,lpp.y,0,0);
 }
@@ -93,7 +101,7 @@ bool convert(Point c){
 		//cout<<sqrt(pow((double)(lpp.x-rec.left),2)+pow((double)(lpp.y-rec.top),2))<<endl;
 		if(sqrt(pow((double)(lpp.x-rec.left),2)+pow((double)(lpp.y-rec.top),2))<100){
 			SetCursorPos(rec.left+5,rec.top+5);
-		    cout<<"asdsadasD";
+		   // std::cout<<"asdsadasD";
 		}
 	    if(abs(lpp.y-screen_height)<100)
 			SetCursorPos(lpp.x,screen_height-20);
@@ -129,7 +137,7 @@ bool convert(Point c){
 		}
 		
 		
-		cout<<endl;
+		std::cout<<std::endl;
 		return true;
 	}
 		
@@ -146,7 +154,6 @@ RECT getWindow(){
 	return rec;
 	
 }
-
 	
 
 
