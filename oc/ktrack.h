@@ -34,5 +34,6 @@ bool convert(Point);
 void sendEvent(int);
 void recogreturn();
 void lclick();
+void dblclick();
 
 #endif

@@ -58,6 +58,7 @@ void sendEvent(int no){
 switch(no){
 case 1:lclick();
 	break;
+case 2:dblclick();
 default: std::cout<<"illegal event";
 
 }
@@ -68,6 +69,14 @@ default: std::cout<<"illegal event";
 
 void lclick(){
  std::cout<<"left clicked"<<std::endl;
+ mouse_event(MOUSEEVENTF_LEFTDOWN,lpp.x,lpp.y,0,0);
+ mouse_event(MOUSEEVENTF_LEFTUP,lpp.x,lpp.y,0,0);
+}
+
+void dblclick(){
+ std::cout<<"double clicked"<<std::endl;
+ mouse_event(MOUSEEVENTF_LEFTDOWN,lpp.x,lpp.y,0,0);
+ mouse_event(MOUSEEVENTF_LEFTUP,lpp.x,lpp.y,0,0);
  mouse_event(MOUSEEVENTF_LEFTDOWN,lpp.x,lpp.y,0,0);
  mouse_event(MOUSEEVENTF_LEFTUP,lpp.x,lpp.y,0,0);
 }

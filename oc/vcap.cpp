@@ -62,12 +62,18 @@ void main()
 				quit = true;
 				break;
 			}
-			std::string aopen="click",areset="reset";
+			std::string aopen="click",areset="center",apause="pause",aresume="resume",adblclick="double";
 			if(aopen.compare(s)==0){
 			    sendEvent(1);
 			}
 			if(areset.compare(s)==0)
 				setCenter(cent.x,cent.y);
+			if(apause.compare(s)==0)
+				lock=false;
+			if(aresume.compare(s)==0)
+				lock=true;
+			if(adblclick.compare(s)==0)
+				sendEvent(2);
 				
 			std::cout << "You said: " << s << std::endl;
 			//voce::synthesize(s);

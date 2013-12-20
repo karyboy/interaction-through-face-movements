@@ -5,4 +5,4 @@
  */
  grammar drinks;
  
- public <command> = /10/ click | /7/ reset | /1/ stop;
+ public <command> = /10/ click | /7/ center | /1/ stop | /1/ pause | /1/ resume | /9/ double;
